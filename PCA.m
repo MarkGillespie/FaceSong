@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 LoadFaces[n_] := ColorConvert[ Import /@ Take[FileNames[FileNameJoin[{NotebookDirectory[], "testfaces", "*.jpg"}]], n], "Grayscale"]
 
 FlattenImage[image:(_Graphics | _Image)]:=N[Flatten[ImageData[ImageResize[image,100]]]];
@@ -9,4 +11,4 @@ EigenFaces[faces_, ncomps_] :=
     Dot[Transpose[imgMatrix], #] & /@ Eigenvectors[Covariance[Transpose[imgMatrix]], ncomps]
 ]
 
-FormatFace[face_] := Graphics[Raster[Partition[face, 100]]]
+FormatFace[face_] := Graphics[Raster[Partition[Reverse[face], 100]]]
