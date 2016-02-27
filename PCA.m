@@ -1,8 +1,8 @@
+BeginPackage["PCA.m"];
 
+LoadFaces[n_] := With[{nb = EvaluationNotebook[]}, Import /@ Take[FileNames[FileNameJoin[{NotebookDirectory[nb], "testfaces", "*.jpg"}]], n]]
 
-LoadFaces[n_] = With[{nb = EvaluationNotebook[]}, Import /@ Take[FileNames[FileNameJoin[{NotebookDirectory[], "testfaces", "*.jpg"}]], n]]
-
-FlattenImage[image:(_Graphics | _Image)]:=N[Flatten[ImageData[ImageResize[image,100]]]];
+FlattenImage[image:(_Graphics | _Image)]:=N[Flatten[ImageData[ImageResize[image,100]]]]
 
 EigenImageElements[images_List, frac_ : 0.5] := 
      Module[{imgMatrix = imageVector /@ images, imgMatrixAdj, imgAverage, eigenVecs},
@@ -12,3 +12,6 @@ EigenImageElements[images_List, frac_ : 0.5] :=
         imgMatrixAdj = Dot[eigenVecs, imgMatrix];
         {imgMatrixAdj, imgAverage, eigenVecs}
 ]
+
+EndPackage["PCA.m"]
+
