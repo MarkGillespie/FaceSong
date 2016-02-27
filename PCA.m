@@ -18,3 +18,4 @@ EigenImageElements[images_List, frac_ : 0.5] :=
         imgMatrixAdj = Dot[eigenVecs, imgMatrix];
         {imgMatrixAdj, imgAverage, eigenVecs}
 ]
+
