@@ -15,7 +15,8 @@ void setup()
   size(512, 512);
   
   minim = new Minim(this);
-  song = minim.loadFile("../FourierDecomposition/chopin.wav");
+  //song = minim.loadFile("../FourierDecomposition/chopin.wav");
+  song = minim.loadFile("eggsong.wav");
   song.play();
   
   fft = new FFT(song.bufferSize(), song.sampleRate());
@@ -42,7 +43,7 @@ void setup()
     int i2 = 0;
     for(String s2 : doubles)
     {
-      eigenfaces[i1][i2] = 12000 * Math.abs(Double.parseDouble(s2));
+      eigenfaces[i1][i2] = 1200 * Math.abs(Double.parseDouble(s2));
       i2++;
     }
     i1++;
@@ -114,7 +115,7 @@ void draw()
     {
       for (int q = 0; q < 20; q++)
       {
-        linearcombination[j] += components[q] * (q + 1) * eigenfaces[3*q][j] / 20;
+        linearcombination[j] += components[q] * (q + 1)* eigenfaces[10+q][j] / 20;
       }
     }
 
