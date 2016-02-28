@@ -15,19 +15,19 @@ void setup()
   size(512, 512);
   
   minim = new Minim(this);
-  song = minim.loadFile("/home/nick/workspace/FaceSong/FourierDecomposition/chopin.wav");
+  song = minim.loadFile("../FourierDecomposition/chopin.wav");
   song.play();
   
   fft = new FFT(song.bufferSize(), song.sampleRate());
   
   // load the eigenfaces into the array
-  table = loadTable("/home/nick/workspace/FaceSong/larger_eigenfaces.csv");
+  table = loadTable("larger_eigenfaces.csv");
   
   for (TableRow i : table.rows())
   {
   }
   
-  String[] eigenfaces2 = loadStrings("/home/nick/workspace/FaceSong/larger_eigenfaces.csv");
+  String[] eigenfaces2 = loadStrings("larger_eigenfaces.csv");
   println(eigenfaces2.length);
   int i1 = 0;
   for (String s : eigenfaces2)
